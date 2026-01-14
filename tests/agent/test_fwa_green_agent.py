@@ -5,7 +5,7 @@ These tests start actual agent servers and test the full evaluation flow.
 Run with: uv run pytest tests/agent/test_fwa_green_agent.py -v
 
 Environment Variables:
-    FWA_TEST_TOKEN: API token for testing (required for integration tests)
+    HF_TOKEN: API token for testing (required for integration tests)
 """
 import asyncio
 import os
@@ -34,11 +34,11 @@ def create_test_scenario_file() -> Path:
         Path to the temporary scenario file.
         
     Raises:
-        pytest.skip: If FWA_TEST_TOKEN is not set.
+        pytest.skip: If HF_TOKEN is not set.
     """
-    token = os.environ.get("FWA_TEST_TOKEN")
+    token = os.environ.get("HF_TOKEN")
     if not token:
-        pytest.skip("FWA_TEST_TOKEN environment variable not set. Set it to run integration tests.")
+        pytest.skip("HF_TOKEN environment variable not set. Set it to run integration tests.")
     
     # Read the template scenario file
     with open(SCENARIO_TEMPLATE_PATH, "r", encoding="utf-8") as f:
@@ -169,7 +169,7 @@ async def purple_agent_server():
 async def test_green_agent_evaluation(green_agent_server, purple_agent_server):
     """Test full evaluation flow with Green and Purple agents.
     
-    Requires FWA_TEST_TOKEN environment variable to be set.
+    Requires HF_TOKEN environment variable to be set.
     """
     # Create temporary scenario file with token from environment
     scenario_path = create_test_scenario_file()

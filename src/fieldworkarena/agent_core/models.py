@@ -6,6 +6,7 @@ class EvalRequest(BaseModel):
     config: dict[str, Any]
 
 class EvalResult(BaseModel):
+    target: str
     total_tasks: int
     total_score: float
     score_rate: float

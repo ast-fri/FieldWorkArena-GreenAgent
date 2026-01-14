@@ -9,6 +9,3 @@ cmd = "python tests/fixtures/scenarios/fwa/purple_agent/test_agent.py --host 127
 
 [config]
 target = "custom"
-# Token should be set via environment variable FWA_TEST_TOKEN in tests
-# DO NOT commit actual token values to Git
-token=""

@@ -58,7 +58,7 @@ This project requires access to the FieldWorkArena dataset hosted on Hugging Fac
 5. Once approved, generate an access token:
    - Go to your Hugging Face Settings → Access Tokens
    - Create a new token with `read` permissions
-   - Copy the token and use it in your `scenario.toml` configuration file
+   - Copy the token and set it in your `.env` file as `HF_TOKEN`
 
 **Note:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change. 
 
@@ -180,7 +180,6 @@ cmd = "python scenarios/fwa/purple_agent/test_agent.py  --host 127.0.0.1 --port 
 
 [config]
 target = "factory"
-token="your token"
 ```
 
 #### Configuration Sections
@@ -197,7 +196,6 @@ token="your token"
 
 **`[config]`**: Assessment configuration
 - `target`: Target category to run (`"factory"`, `"warehouse"`, `"retail"`, `"custom"`, or `"all"`)
-- `token`: your FWA-authenticated Hugging Face access token
 
 ## Testing
 

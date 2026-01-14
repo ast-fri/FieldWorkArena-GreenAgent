@@ -26,9 +26,9 @@ class TestBenchmarkDataSource:
     @pytest.fixture
     def real_access_token(self):
         """Fixture for real access token from environment variable (for integration tests)"""
-        token = os.getenv("FWA_TEST_TOKEN")
+        token = os.getenv("HF_TOKEN")
         if not token:
-            pytest.skip("FWA_TEST_TOKEN environment variable not set")
+            pytest.skip("HF_TOKEN environment variable not set")
         return token
     
     @pytest.fixture
@@ -483,9 +483,9 @@ class TestBenchmarkDataSourceIntegration:
     @pytest.fixture
     def real_access_token(self):
         """Fixture for real access token from environment variable"""
-        token = os.getenv("FWA_TEST_TOKEN")
+        token = os.getenv("HF_TOKEN")
         if not token:
-            pytest.skip("FWA_TEST_TOKEN environment variable not set. See tests/README.md for setup instructions.")
+            pytest.skip("HF_TOKEN environment variable not set. See tests/README.md for setup instructions.")
         return token
     
     @pytest.fixture

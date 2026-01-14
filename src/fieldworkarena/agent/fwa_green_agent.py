@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import contextlib
+import os
 import sys
 from typing import Any
 
@@ -41,7 +42,7 @@ logger = getLogger(__name__)
 class FWAGreenAgent(GreenAgent):
     def __init__(self):
         self._required_roles = ["agent"]
-        self._required_config_keys = ["target", "token"]
+        self._required_config_keys = ["target"]
         self._client = PurpleClient()
         self._data_source = None
 
@@ -59,10 +60,13 @@ class FWAGreenAgent(GreenAgent):
         if missing_config_keys:
             return False, f"Missing config keys: {missing_config_keys}"
         
-        # validate the access token
+        # validate the access token from environment variable
+        access_token = os.getenv('HF_TOKEN')
+        if not access_token:
+            return False, "HF_TOKEN environment variable is not set"
         try:
             self._data_source = BenchmarkDataSource(
-                access_token=request.config['token']
+                access_token=access_token
             )
             self._data_source.validate_access()
             logger.info("Access token validated successfully.")
@@ -158,6 +162,7 @@ class FWAGreenAgent(GreenAgent):
             # After all tasks are completed, add the aggregated results as an artifact
             score_rate = total_score / len(tasks) if len(tasks) > 0 else 0.0
             eval_result = EvalResult(
+                target=req.config['target'],
                 total_tasks=len(tasks),
                 total_score=total_score,
                 score_rate=score_rate,

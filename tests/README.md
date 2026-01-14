@@ -6,7 +6,7 @@ This document provides detailed information about running tests in the FWA (Fiel
 
 Integration tests require authentication tokens to be set via environment variables.
 
-### FWA_TEST_TOKEN
+### HF_TOKEN
 
 HuggingFace authentication token required for running integration tests. In production, this is configured in `scenario.toml`.
 
@@ -15,7 +15,7 @@ HuggingFace authentication token required for running integration tests. In prod
 Create a `.env` file in the project root (**Important: already included in `.gitignore`**):
 
 ```env
-FWA_TEST_TOKEN=your-token-here
+HF_TOKEN=your-token-here
 ```
 
 If you use `pytest-dotenv`, it will automatically load this file.
@@ -48,11 +48,11 @@ uv run pytest -m "not integration" -v
 
 ## Token Not Set
 
-If `FWA_TEST_TOKEN` is not set, integration tests will be automatically skipped:
+If `HF_TOKEN` is not set, integration tests will be automatically skipped:
 
 ```
 tests/agent/test_fwa_green_agent.py::test_green_agent_evaluation SKIPPED
-Reason: FWA_TEST_TOKEN environment variable not set.
+Reason: HF_TOKEN environment variable not set.
 ```
 
 ## Security Notes
@@ -62,17 +62,6 @@ Reason: FWA_TEST_TOKEN environment variable not set.
 - Ensure `.env` file is included in `.gitignore` (already configured)
 - Keep the `token` field in `scenario.toml` empty
 - Use environment variables or secret management services for all sensitive credentials
-
-## Test Implementation Details
-
-Integration tests use a temporary scenario file approach to inject tokens at runtime:
-
-1. The template `scenario.toml` contains an empty token field
-2. During test execution, a temporary file is created with the token from `FWA_TEST_TOKEN`
-3. The temporary file is used for the test and deleted afterward
-4. This ensures no tokens are committed to version control
-
-See [test_fwa_green_agent.py](../agent/test_fwa_green_agent.py) for implementation details.
 
 ## Test Directory Structure
 
