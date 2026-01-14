@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1.1.2001",
+        "input_data": "Cam001-Coffee1.mp4  Coffee_Maker_Cleaning_Manual.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of CoffeeMaker Cleaning. The start and end times must be output from the time of the movie itself. The procudeure is in \"Coffee_Maker_Cleaning_Manual.txt\". If the specified work is not found in the video, report as \"No specified motion\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified motion start and end times are from 00:00:10 to 00:02:36."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    }
+]

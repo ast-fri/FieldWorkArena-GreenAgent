@@ -1,0 +1,34 @@
+[
+    {
+        "id": "2.1.0001",
+        "input_data": "WH_Products_Aisle_5_Rear1080p_2023_09_27_7AM_41_01_H_trim0_f1_001.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "What is the distance between a woman wearing a yellow vest and a black shirt and black forklift?"
+            },
+            {
+                "from": "gpt",
+                "value": "12 meters"
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.0002",
+        "input_data": "WH_Products_Aisle_5_Rear1080p_2023_09_27_7AM_41_01_H_trim0_f1_003.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "What is the distance between a man wearing a yellow vest and a blue shirt and black forklift?"
+            },
+            {
+                "from": "gpt",
+                "value": "16 meters"
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]

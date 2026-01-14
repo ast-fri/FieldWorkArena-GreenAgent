@@ -1,0 +1,75 @@
+[
+    {
+        "id": "1.1.0001",
+        "input_data": [
+            "West5_G210_HANKUMI.mp4"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please indicate the start and end times of the equipment assembly work cycle. This cycle is from when the worker starts working at the work desk to when the worker completes the work and leaves the work desk."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected equipment assembly work cycle start and end times are from 00: 00:03:53 to 00:09:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0023",
+        "input_data": [
+            "West5_Checkmask_4_00h24m00s_00h34m34s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "Specified element behavior not found."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0031",
+        "input_data": [
+            "English_FQ510-050_Handa_Tank_Cleaning.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the \"work procedures for soldering bath maintenance\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Solder bath maintenance procedures, based on the provided text:    Safety Precautions and System Shutdown: Stop the solder jet using the specified switch settings (Main switch: ON, Preparation: OFF, Operation: OFF). Wear appropriate safety equipment. Stop work and contact a supervisor if any abnormalities occur.    Lower the Lifter: Lower the lifter using the lowering lever.    Remove the Solder Tank: Pull out the solder tank using the drawer lever.    Nozzle Removal and Cleaning: Remove nozzle fixing screws. Carefully remove nozzles using pliers, collecting spilled solder. Disassemble and clean nozzles, removing solder oxides from the straightening plate, wire mesh, and jet guide. (At least weekly). Consult the manufacturer's manual for proper disassembly procedures.    Nozzle Reassembly: Reassemble the nozzles, ensuring a secure fit to prevent floating or tilting.    Raise the Lifter: Raise the lifter using the lift lever.    Soldering Condition Verification: Check wave height, width, and solder level to ensure they meet specifications.    Resume Soldering Operation: Once soldering conditions are confirmed to be within the prescribed range and soldering performance is satisfactory, resume the soldering operation."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+        {
+        "id": "1.1.0033",
+        "input_data": [
+            "Table_2_in_English.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please extract and complete the precaution for \"Man-powered Transportation Work.\""
+            },
+            {
+                "from": "gpt",
+                "value": "The following are cautionary notes for manual transportation work.  ①Do not repeatedly hold or move, or repeat the intermediate step. ②To reduce or reduce movement from bottom to top and from top to bottom. ③Do not handle the product below 0cm above the floor or above the chest. ④Do not work while moving backwards. ⑤Don't swing long things around. ⑥When handling hazardous and hazardous materials, we shall strictly observe the precautions concerning these matters. ⑦Consider the weight of the baggage and handle the baggage that is too much for your own power more than others. ⑧Hands should be held for as little time as possible. ⑨Orient correctly (facing straight), lightly bend knees, lower back, straight back and hold firmly."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]

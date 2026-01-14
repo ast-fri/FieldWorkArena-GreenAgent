@@ -1,0 +1,20 @@
+custom = [
+  "fieldworkarena.1.1.0031"
+]
+
+factory = [
+  "fieldworkarena.1.1.0001",
+  "fieldworkarena.1.1.0023",
+  "fieldworkarena.1.1.0031",
+]
+
+warehouse = [
+  "fieldworkarena.1.1.0033",
+  "fieldworkarena.2.1.0001",
+  "fieldworkarena.2.1.0002",
+]
+
+retail = [
+  "fieldworkarena.1.1.2001",
+  "fieldworkarena.2.1.2108",
+]

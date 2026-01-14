@@ -1,0 +1,796 @@
+[
+    {
+        "id": "1.1.0001",
+        "input_data": [
+            "West5_G210_HANKUMI.mp4"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please indicate the start and end times of the equipment assembly work cycle. This cycle is from when the worker starts working at the work desk to when the worker completes the work and leaves the work desk."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected equipment assembly work cycle start and end times are from 00: 00:03:53 to 00:09:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0002",
+        "input_data": [
+            "West5_G210_HANKUMI_00h03m50s_00h09m02s.mp4"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what are the start and end times of the elemental action \"quality check with two check masks\"?"
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:03:18 to 00:03:24."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0003",
+        "input_data": [
+            "Center6_Solder_washing_3_00h00m00s_00h51m00s.mp4"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the start and end times of the solder tank cleaning cycle."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:00:00 to 00:50:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0004",
+        "input_data": [
+            "Center6_Solder_washing_3_00h00m00s_00h51m00s.mp4",
+            "Solder_tank_cleaning_procedure.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what are the start and end times of the element motion for \"Remove the fixing screws of the primary and secondary nozzles, drop the solder adhering to the nozzles into the solder tank using two water pump pliers, take out the nozzle body while paying attention to leakage to the surroundings, place it on a stainless steel tray, and disassemble and clean.\" in the element work list? The start and end times must be output from the time of the movie itself. The element worklist file is \"Solder_tank_cleaning_procedure.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:06:07 to 00:38:10."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0005",
+        "input_data": [
+            "West6_Assembly_Screw_1.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"6_ScrewTightening_PhoneAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There are three cycles running from start to finish, with start and end times of 00:00:10 to 00:04:25, 00:04:27 to 00:08:35, and 00:08:37 to 00:12:56."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0006",
+        "input_data": [
+            "West6_Assembly_Screw_2.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"6_ScrewTightening_PhoneAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle that starts in the middle and runs to the end, with start and end times from 00:00:00 to 00:03:31. There are 5 cycles running from start to finish with start and end times of 00:03:40 to 00:07:48, 00:07:50 to 00:11:42, 00:11:45 to 00:15:45, 00:15:48 to 00:19:47, 00:19:49 to 00:23:38."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0007",
+        "input_data": [
+            "West6_Assembly_Screw_3.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"6_ScrewTightening_PhoneAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle where the video starts in the middle and runs to the end, and the start and end times are from 00:00:00 to 00:00:28. There are seven cycles running from start to finish, each with a start and end time of 00:00:30 to 00:04:31, 00:04:33 to 00:08:48, 00:08:50 to 00:12:56, 00:12:58 to 00:16:48, 00:17:59 to 00:22:14, 00:22:16 to 00:26:33, 00:26:35 to 00:30:52. There is one cycle that starts from the beginning and ends in the middle, and the start and end times are 00:30:55 to 00:32:53."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0008",
+        "input_data": [
+            "West6_Assembly_Screw_1_00h00m00s_00h04m25s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"4 places for installing KEY board and tightening screws\" of element number 6 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:01:18 to 00:01:29."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0009",
+        "input_data": [
+            "West6_Assembly_Screw_1_00h04m25s_00h08m35s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"4 places for installing KEY board and tightening screws\" of element number 6 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:00:52 to 00:01:04."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0010",
+        "input_data": [
+            "West6_Assembly_Screw_2_00h11m43s_00h15m46s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Return the empty tray to the return lane.\" of element number 26 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:03:59 to 00:04:02."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0011",
+        "input_data": [
+            "West6_Assembly_Screw_2_00h11m43s_00h15m46s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"4 places for installing KEY board and tightening screws\" of element number 6 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:00:52 to 00:01:03."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0012",
+        "input_data": [
+            "West6_Assembly_Screw_2_00h15m48s_00h19m50s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"4 places for installing KEY board and tightening screws\" of element number 6 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:00:52 to 00:01:03."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0013",
+        "input_data": [
+            "West6_Assembly_Screw_3_00h00m30s_00h04m35s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"4 places for installing KEY board and tightening screws\" of element number 6 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:00:58 to 00:01:08."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0014",
+        "input_data": [
+            "West6_Assembly_Screw_3_00h00m30s_00h04m35s.mp4",
+            "6_ScrewTightening_PhoneAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"6 locations of sitcase screw tightening\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"6_ScrewTightening_PhoneAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:02:58 to 00:03:16."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0015",
+        "input_data": [
+            "West5_Checkmask_1.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"7_MaskCheck_RouterAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle where the video starts in the middle and runs to the end, and the start and end times are from 00:00:00 to 00:06:30. There is one cycle that starts from the beginning and ends in the middle, and the start and end times are 00:07:51 to 00:13:17."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0016",
+        "input_data": [
+            "West5_Checkmask_2.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"7_MaskCheck_RouterAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle where the video starts in the middle and runs to the end, and the start and end times are from 00:00:00 to 00:13:35. There is one cycle running from start to finish, with start and end times 00:14:18 to 00:29:22."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0017",
+        "input_data": [
+            "West5_Checkmask_3.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"7_MaskCheck_RouterAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle in which the video starts from the middle and runs to the end including redoing, and the start and end times are from 00:00:00 to 00:12:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0018",
+        "input_data": [
+            "West5_Checkmask_4.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, please tell us the start and end times of the work cycle along with the number of times each work cycle is performed. Output the start time and end time of the work cycle from the time of the video itself. A series of cycles is a cycle that sequentially executes \"7_MaskCheck_RouterAssembly.txt\" of the element work list file."
+            },
+            {
+                "from": "gpt",
+                "value": "There is one cycle in which the video starts from the middle and runs to the end including redoing, and the start and end times are from 00:00:00 to 00:08:35. There is one cycle running from start to finish, with start and end times from 00:11:58 to 00:21:12. There is one cycle that starts from the beginning and ends in the middle, and the start and end times are 00:24:15 to 00:34:21."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0019",
+        "input_data": [
+            "West5_Checkmask_1_00h07m50s_00h13m17s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:03:27 to 00:03:33."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0020",
+        "input_data": [
+            "West5_Checkmask_2_00h14m18s_00h29m40s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:11:33 to 00:12:40."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0021",
+        "input_data": [
+            "West5_Checkmask_3_00h00m00s_00h12m00s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:07:43 to 00:08:11."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0022",
+        "input_data": [
+            "West5_Checkmask_4_00h12m00s_00h22m00s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The specified element motion start and end times are from 00:07:06 to 00:07:35."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0023",
+        "input_data": [
+            "West5_Checkmask_4_00h24m00s_00h34m34s.mp4",
+            "7_MaskCheck_RouterAssembly.txt"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, what is the start time and what is the end time of element action: \"Quality check with 2 check masks\" of element number 20 in the element work list? Start time and end time should be output from the time of the movie itself. The file for the element work list is \"7_MaskCheck_RouterAssembly.txt\"."
+            },
+            {
+                "from": "gpt",
+                "value": "Specified element behavior not found."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "1.1.0024",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the items for the \"pre-shift inspection of electrical insulating rubber gloves\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "In order to detect damage, rubber deterioration, dirt, etc., please carry out a starting inspection by visual inspection, etc., and if there is any defect, please replace it. - Contents of the start check - Visual check: No pinholes, cuts, tears, etc. - Tensile check: There is no deterioration of rubber such as partial tension, cracks or scratches.  - Air test check: To detect pinholes, cracks, etc., conduct an air test and ensure that no air leaks. (Air test: Roll the glove from the cuff and hold it by the wrist, and press the inflated part to confirm that there is no air leakage. - Check for dirt: Make sure that the product is clean. If it is dirty, wash it with a neutral detergent. Also, dry the product before use."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0025",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the items for the \"periodic inspection of electrical insulating rubber gloves\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Summary of Insulated Rubber Glove Periodic Inspection Procedures   This document outlines the procedures for the periodic inspection of insulated rubber gloves. Key aspects include:   1. Inspection Cycle and Frequency: Gloves must undergo periodic inspection at least once every six months.   2. Inspection Records:   Inspection Chart: A standardized form (\"Form 1 Periodic Inspection Chart for Electrical Insulated Rubber Gloves for High Voltage/Low Voltage\") is used to record inspection data for each glove. This chart is managed collectively by section. Chart Contents: The chart includes the inspection date (as per the manufacturer's report), reviewer, investigators, approver, glove control number, glove specifications (name, model number, manufacturer), location of use, manufacturer's inspection results (external inspection and pressure resistance test – \"○\" for both good, \"×\" if either is defective), and any additional notes (e.g., new purchase, disposal, replacement).  3. Glove Control Number:   Format: A five-character alphanumeric code (Section Abbreviation - Glove Serial Number). Section Abbreviation: Unique alphanumeric code assigned per section. Glove Serial Number: Numeric sequence (001-999). Marking: The control number is clearly marked (approximately 10mm square, black permanent marker) on the back of the wrist of each glove.  4. Inspection Pass Indication: Each glove is stamped with the date of passing the inspection. This date determines the next inspection date.   5. Manufacturer's Inspection Report:   Content: Includes external inspection results and pressure resistance test results (both must be \"good\"). Additionally, it must legally include the manufacturer's name, inspection date, method, location, inspector's name, and any remedial actions taken. High Voltage Test Values: 20,000V (new), 10,000V (periodic). Low Voltage Test Values: 3,000V (new), 1,500V (periodic). Defective Gloves: Gloves marked as \"defective\" must be discarded and replaced with spares. Inspection Provider: Kyowa PV Co., Ltd. (via WWW).  6. Record Retention: Inspection charts and reports must be retained as quality records for a minimum of three years, as required by law."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0026",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the items related to \"glove wearing methods\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Based on the provided pdf, a list of acceptable glove candidates for use, or equivalent, would include:   Insulated rubber gloves (high pressure/low pressure): These should be worn up to the sleeve, with cuffs unbent. Cotton gloves: Appropriate for direct contact with semiconductor devices. Anti-static gloves: Appropriate for direct contact with semiconductor devices to prevent electrostatic damage. Non-static finger sacks: Appropriate for direct contact with semiconductor devices and for handling small items. Can also substitute for gloves in some cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0027",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the \"list of candidate gloves to be used\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Based on the provided PDF, the following gloves and finger sacks are acceptable candidates:   Cotton Gloves: Menu Tebuchuro No. 2001 (Sizes: L, M) from ZZZ Anti-Static Gloves: Several options from ZZZ are available, including: Antistatic Fingertip Coated Gloves (XX 201 or XX 101101) (Sizes: LL, L, M, S, SS) Antistatic Palm Coated Gloves (XX 100) (Sizes: L, M, S) Antistatic Non Coated Gloves (XX 102) (Sizes: L, M, S)  Non-Charging Finger Sacks: Non-static Finger Sack (Model No. EE 2) from SSS (Sizes: 21, 18, 15) Low-Pressure Electrically Insulated Rubber Gloves: Table 1 details various models and sizes of low-pressure electrically insulated rubber gloves. Specific model numbers and their corresponding dimensions (total length, thumb, index finger, middle finger, palm, wrist lengths, and weight) are listed in Table 1. Manufacturer: YYY. Sizes available are extra large, large, medium, and small. High-Pressure Electrically Insulated Rubber Gloves: Table 2 (previously provided) shows various models and sizes of high-pressure electrically insulated rubber gloves. Specific model numbers and their corresponding dimensions (total length, thumb, index finger, middle finger, palm, wrist lengths, and weight) are detailed in Table 2. Manufacturer: YYY. Sizes available are extra large, large, medium, and small."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0028",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please tell me about the contents of the periodic inspection table in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "There are 10 items to be written in the periodic inspection chart.  ① Inspection cycle: Periodic inspection should be performed once per glove within six months. ② Date of inspection: Indicate the date of inspection by the inspection manufacturer. (Described in the manufacturer's report) ③ Reviewer: our company's person in charge of reviewing the manufacturer's report ④ Investigators: Investigators in each section of our company ⑤ Approved by: Section managers in our company ⑥ Control number: Control number for each glove < (2 2 >) > ⑦ Glove specifications: List the item name, model number and manufacturer of the glove. ⑧ Place of use: Location: Building name (e.g. North Building 1), Process: Process name (e.g. S iR) ⑨ Manufacturer's inspection results: \" ○\" is indicated when the inspection results of the external inspection and the pressure resistance test are both \"good,\" and \"×\" is indicated when either of them is \" ⑩ Notes: Supplementary information is included. (New purchase/periodic inspection, operation/reserve, defective disposal/replacement, etc., are described.)"
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0029",
+        "input_data": [
+            "English_Translation_FQ510-042_Wearing_Gloves.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, extract the cotton glove replacement cycle."
+            },
+            {
+                "from": "gpt",
+                "value": "At least once a day, or if damaged/stained, replace with washed or new."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0030",
+        "input_data": [
+            "English_FQ510-050_Handa_Tank_Cleaning.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the \"list of candidate gloves to be used\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Based on the provided pdf, the following safety equipment should be worn during solder bath maintenance:   Gloves: Double layered; inner cotton gloves [Made by ZZZ: Menu Stebukuro (No. 2001) equivalent] and outer heat-resistant (leather) gloves [Made by ZZZ: Leather Gloves (TTT 100 5) Equivalent]."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0031",
+        "input_data": [
+            "English_FQ510-050_Handa_Tank_Cleaning.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the \"work procedures for soldering bath maintenance\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Solder bath maintenance procedures, based on the provided text:    Safety Precautions and System Shutdown: Stop the solder jet using the specified switch settings (Main switch: ON, Preparation: OFF, Operation: OFF). Wear appropriate safety equipment. Stop work and contact a supervisor if any abnormalities occur.    Lower the Lifter: Lower the lifter using the lowering lever.    Remove the Solder Tank: Pull out the solder tank using the drawer lever.    Nozzle Removal and Cleaning: Remove nozzle fixing screws. Carefully remove nozzles using pliers, collecting spilled solder. Disassemble and clean nozzles, removing solder oxides from the straightening plate, wire mesh, and jet guide. (At least weekly). Consult the manufacturer's manual for proper disassembly procedures.    Nozzle Reassembly: Reassemble the nozzles, ensuring a secure fit to prevent floating or tilting.    Raise the Lifter: Raise the lifter using the lift lever.    Soldering Condition Verification: Check wave height, width, and solder level to ensure they meet specifications.    Resume Soldering Operation: Once soldering conditions are confirmed to be within the prescribed range and soldering performance is satisfactory, resume the soldering operation."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0032",
+        "input_data": [
+            "English_FQ510-050_Handa_Tank_Cleaning.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract and list the \"work procedures for post-work procedures\" in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Post-task actions for solder bath inspection, based on the provided text, include:   Cleaning the flow soldering device: Wipe the upper part of the machine with a rag (replace regularly) or use an adhesive roll in cooler areas. Dispose of used adhesive rolls properly. Cleaning SUS plates: Remove dust and dross from stainless steel (SUS) plates. Cleaning safety shoes: Remove solder dust from dedicated safety shoes using an adhesive sheet. Personal hygiene: Wash hands with soap and gargle."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0033",
+        "input_data": [
+            "Table_2_in_English.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please extract and complete the precaution for \"Man-powered Transportation Work.\""
+            },
+            {
+                "from": "gpt",
+                "value": "The following are cautionary notes for manual transportation work.  ①Do not repeatedly hold or move, or repeat the intermediate step. ②To reduce or reduce movement from bottom to top and from top to bottom. ③Do not handle the product below 0cm above the floor or above the chest. ④Do not work while moving backwards. ⑤Don't swing long things around. ⑥When handling hazardous and hazardous materials, we shall strictly observe the precautions concerning these matters. ⑦Consider the weight of the baggage and handle the baggage that is too much for your own power more than others. ⑧Hands should be held for as little time as possible. ⑨Orient correctly (facing straight), lightly bend knees, lower back, straight back and hold firmly."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0034",
+        "input_data": [
+            "Table_2_in_English.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please extract and fill in all the precautions in \"Points for crane and sling work.\""
+            },
+            {
+                "from": "gpt",
+                "value": "The points to be noted when performing crane and sling work are as follows.  ①To check cranes. ②To check slinging tools. ③Work should be carried out by qualified personnel. ④To determine signals and carry them out reliably. ⑤Check whether the lifting load of the crane and the weight of the lifting load are compatible. ⑥To operate a crane and sling in a correct manner."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0035",
+        "input_data": [
+            "Warehouse_Management_Chiefs'_Manual.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please Excerpt and complete the \"Four principles of stopping forklifts.\" precautions in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "The four principles for stopping forklifts are as follows. ① To park on level ground. ② Lower the fork (nail tip) to the floor. ③ To stop the engine and remove the key. ④ Pull the side brakes to stop the tires."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0036",
+        "input_data": [
+            "Warehouse_Management_Chiefs'_Manual.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please excerpt and complete the \"Forklift Work\" precautions in this PDF file."
+            },
+            {
+                "from": "gpt",
+                "value": "Forklift operations include the following. ・In the workshop, a walking path is defined and a line is drawn. ・During the work, only persons concerned are prohibited from entering. ・Never place a person on the claw or counterweight of a forklift. ・Forklifts have poor visibility ahead of them, so they should pay sufficient attention to the front, back, left, and right, and at the same time, when the load is large, they should carry out the following. ・driving back (Installation of back buzzer and use of fog lamp) ・Guidance by a guide shall be carried out as necessary. ・Speed limits shall be established, indicated and observed. ・Cargoes placed on pallets should be loaded safely and securely. If there is a risk of cargo collapsing, safe measures should be taken, such as wrapping the cargoes. ・When driving on the road, use a pallet, skid, etc., or mark the tip of a fork. ・Observe the four principles of stopping forklifts. Observe the four principles of stopping forklifts. ① To park on level ground. ① To park on level ground. ② Lower the fork (nail tip) to the floor. ② Lower the fork (nail tip) to the floor. ③ To stop the engine and remove the key. ③ To stop the engine and remove the key. ④ Pull the side brakes to stop the tires. ④ Pull the side brakes to stop the tires. ・Forklifts should be operated by the holder of the certificate of qualification (a person Forklifts should be operated by the holder of the certificate of qualification (a person who has completed the skill training course). (Even when driving in places where the Road who has completed the skill training course). (Even when driving in places where the Road Traffic Law does not apply, it is obligatory to obtain and carry a driving quTraffic Law does not apply, it is obligatory to obtain and carry a driving qualification alification under the Safety and Health Law.)under the Safety and Health Law.)"
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0037",
+        "input_data": [
+            "Table_2_in_English.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please extract and list the points to be considered from the \"management side\" in preventing industrial accidents caused by forklifts."
+            },
+            {
+                "from": "gpt",
+                "value": "The following points should be considered in terms of management to prevent industrial accidents caused by forklifts.  ①Preparation and dissemination of work plans (Article of the Safety and Health Ordinance) The following are necessary when working with a forklift. ・To establish a work plan suitable for the size and topography of the work place, the type and capacity of the machine, and the type and shape of the load. ・The operation route and work method shall be indicated. ・To carry out work in accordance with a prescribed work plan. ②Appointment of a work leader (Article of the Safety and Health Ordinance) When carrying out work using a forklift, a work leader shall be appointed and cargo handling work shall be carried out based on this work plan. ③Restrictions on Employment (Article of the Safety and Health Act and item (i) of Article 0 of the Order for Enforcement of the same) Only a person who has completed the skill training course for forklift operation shall be allowed to operate a forklift (in the case of a forklift with a maximum load of more than a ton). ④Implementation of workplace patrols (Article of the Safety and Health Ordinance) It is necessary for the safety manager to periodically inspect workplaces where forklifts are being carried out to check for unsafe actions by workers. It is desirable to conduct workplace patrols even at workplaces where no safety manager has been appointed."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0038",
+        "input_data": [
+            "Warehouse_Management_Chiefs'_Manual.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please extract the notes on \"cargo on pallet.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Cargo placed on pallets should be loaded safely and securely. If there is a risk of cargo collapsing, safe measures should be taken, such as wrapping the cargo with a headband."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0039",
+        "input_data": [
+            "For_the_safe_operation_of_forklifts.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "From this PDF file, please list the items that operators should observe when carrying out cargo handling work using forklifts."
+            },
+            {
+                "from": "gpt",
+                "value": "The following are the conditions to be observed by the operator when carrying out cargo handling work using a forklift.  ・Observe the speed limit in the cargo handling workshop (Article 151 paragraph 5 of the Safety and Health Ordinance). ・When a guide is assigned, follow the guidance of the guide (Article 151 ‐ 7 of the Safety and Health Ordinance and Article 151 ‐ 8 of the Safety and Health Ordinance). ・In principle, do not enter under the forks of a forklift. When instructed to enter, be sure to use safety supports, safety blocks, etc. (Article 151 ‐ 9 of the Safety and Health Ordinance). ・When a forklift is stopped, to surely take runaway prevention measures (Article 151 11 of the Safety and Health Ordinance). ・Not to put a worker on a place other than the riding seat of a forklift (Article 151 13 of the Safety and Health Ordinance). ・Off-purpose use on forklifts (elevation of △, etc.) or not (Article 151 14 of the Safety and Health Ordinance). ・Not to use a forklift exceeding the allowable load or other capacity (Article 151 20 of the Safety and Health Ordinance). ・Wear a seat belt when driving (if one is available). ・To prevent accidents caused by being caught between the mast and the headguard, do not lean out of the driver's seat. ・When using a forklift in which the driver's seat is raised and lowered, take crash prevention measures such as the use of safety belts. Do not make a sudden stop or turn. ・When driving back, make sure to check the rear (direction of travel). ・When moving forward with a load on a fork, check the front (blind spot of the load) thoroughly. ・When passing through the premises, walk in the safe passage and do not jump out from behind a load."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0040",
+        "input_data": [
+            "For_the_safe_operation_of_forklifts.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "From this PDF file, please list the precautions to be taken when carrying out cargo handling work using a forklift."
+            },
+            {
+                "from": "gpt",
+                "value": "The following points should be noted when carrying out cargo handling work using a forklift.  ・To determine the speed limit for cargo handling workshops (Article 151 paragraph 5 of the Safety and Health Ordinance). ・In principle, workers shall not be allowed to enter places where workers are liable to be exposed to dangers due to contact with cargo. When it is necessary to let a person enter, a guide shall be assigned (Article 151 7 of the Safety and Health Ordinance). When placing a guide, set a certain signal (Article 151 8 of the Safety and Health Ordinance). ・In principle, workers shall not be allowed to enter under the load of forks of a forklift. When it is necessary to allow a person to enter, to have the person use safety supports, safety blocks, etc. (Article 151 ‐ 9 of the Safety and Health Ordinance).  ・To prevent a forklift from being used outside its intended purpose (lifting, lowering, etc.) (Article 151 14 of the Safety and Health Ordinance)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0041",
+        "input_data": [
+            "For_the_safe_operation_of_forklifts.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Please extract from this PDF file the precautions for using a forklift to pass through the premises."
+            },
+            {
+                "from": "gpt",
+                "value": "Precautions when using a forklift to pass through the premises are as follows.  When passing through the premises, walk in the safe passage and do not jump out from behind a load."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0042",
+        "input_data": [
+            "For_the_safe_operation_of_forklifts.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "From this PDF file, please extract the notes on forklift operator qualification."
+            },
+            {
+                "from": "gpt",
+                "value": "The following points apply to forklift driver qualifications.  In order to operate a forklift with a maximum load of 1 ton or more, a person who has completed the skill training course for forklift operation (Article 20, Item 11 of the Enforcement Order of the Industrial Safety and Health Act) or other qualified person is required. In addition, the applicant must operate a forklift with a maximum load of less than 1 ton and must have completed a special training course for forklift operation (Item 5 of Article 36 of the Ordinance on Industrial Safety and Health (Hereinafter referred to as \"Anei-no-kori\".)). Also, the above qualifications alone do not allow drivers to drive on public roads."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "1.1.0043",
+        "input_data": [
+            "Table_2_in_English.pdf"
+        ],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this PDF file, please select the points to consider about safety protection and helmets."
+            },
+            {
+                "from": "gpt",
+                "value": "In loading and unloading work, to prevent the danger of falling or falling from the truck bed, etc., and the danger of flying or falling of cargo, etc., a safety cap for crash protection should be worn. It is obligatory to wear a safety helmet when loading and unloading cargo on trucks with a maximum load capacity of more than a ton, and when working on cargo piles (where the height is more than a meter)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]

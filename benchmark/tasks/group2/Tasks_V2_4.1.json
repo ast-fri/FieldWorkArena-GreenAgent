@@ -1,0 +1,402 @@
+[
+    {
+        "id": "4.1.2001",
+        "input_data": "Store_Manual_A.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. What are the business hours for April 28, 2025?"
+            },
+            {
+                "from": "gpt",
+                "value": "Business hours are 08:00 to 20:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2002",
+        "input_data": "Store_Manual_A.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. What are the business hours for April 28 to May 2, 2025? Please list the business hours for each specific date within this period, following the format \"Month Day: HH:MM to HH:MM.\". Start with \"Business hours are as follows,\"."
+            },
+            {
+                "from": "gpt",
+                "value": "Business hours are follows, April 28th: 08:00 to 20:00. April 29th: 08:00 to 21:00. April 30th: 08:00 to 20:00. May 1st: 08:00 to 20:00. May 2nd: 08:00 to 20:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2003",
+        "input_data": "Store_Manual_A.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. To check the basket collection task for April 28, 2025, what files should be accessed?  Camera ID : 104, use both synchronized files"
+            },
+            {
+                "from": "gpt",
+                "value": "The files are, Cam104-202504282000-2010-1cam.mp4, Cam104-202504282000-2010-2cam.mp4."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2004",
+        "input_data": "Store_Manual_A.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. To check the basket collection task for April 29, 2025, what files should be accessed?  Camera ID : 009"
+            },
+            {
+                "from": "gpt",
+                "value": "The files is  Cam009-202504292100-2110.mp4,"
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2005",
+        "input_data": "Store_Manual_A.txt",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. To check the basket collection task for April 28 to May 2, 2025, what files should be accessed? Camera ID : 104, use both synchronized files. Please list the files for each specific date within this period, following the format \"Month Day: file1.mp4, file2.mp4.\". Start with \"The files to access are,\"."
+            },
+            {
+                "from": "gpt",
+                "value": "The files to access are, April 28th: Cam104-202504282000-2010-1cam.mp4, Cam104-202504282000-2010-2cam.mp4. April 29th: Cam104-202504292100-2110-1cam.mp4, Cam104-202504292100-2110-2cam.mp4. April 30th: Cam104-202504302000-2010-1cam.mp4, Cam104-202504302000-2010-2cam.mp4. May 1st: Cam104-202505012000-2010-1cam.mp4, Cam104-202505012000-2010-2cam.mp4. May 2nd: Cam104-202505022000-2010-1cam.mp4, Cam104-202505022000-2010-2cam.mp4."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2006",
+        "input_data": "Store_Manual_A.txt Cam009-Basket0.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the basket collection task. Note that the manual's 10-minute task time should be considered 30 seconds. Your report should address the items listed in section ④ of the manual. If \"Need for basket collection\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for basket collection\" is not required."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2007",
+        "input_data": "Store_Manual_A.txt Cam009-Basket1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the basket collection task. Note that the manual's 10-minute task time should be considered 45 seconds. Your report should address the items listed in section ④ of the manual. If \"Need for basket collection\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for basket collection\" is required, 2 baskets are left. The task was performed, and 2 baskets were collected. Basket collection is complete. This is not an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2008",
+        "input_data": "Store_Manual_A.txt Cam009-Basket2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the basket collection task. Note that the manual's 10-minute task time should be considered 45 seconds. Your report should address the items listed in section ④ of the manual. If \"Need for basket collection\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for basket collection\" is required, 2 baskets are left. The task was performed, and 1 basket was collected. Basket collection is Incomplete, 1 is left. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2009",
+        "input_data": "Store_Manual_A.txt Cam009-Basket9.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the basket collection task. Note that the manual's 10-minute task time should be considered 30 seconds. Your report should address the items listed in section ④ of the manual. If \"Need for basket collection\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for basket collection\" is required, 2 baskets are left. The task was not performed. Basket collection is  Incomplete, 2 are left. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2010",
+        "input_data": "Store_Manual_A.txt Cam003-Disposal0.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the product disposal task.  Note that the manual's 10-minute task time should be considered 1 minute.  The target products are the items on the second and third shelves up from the bottom in the second column from the left. Your report should address the items listed in section ④ of the manual. If \"Need for product disposal\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for product disposal\" is not required."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2011",
+        "input_data": "Store_Manual_A.txt Cam003-Disposal1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the product disposal task.  Note that the manual's 10-minute task time should be considered 1 minute.  The target products are the items on the second and third shelves up from the bottom in the second column from the left. Your report should address the items listed in section ④ of the manual. If \"Need for product disposal\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for product disposal\" is required, 5 products are left. The task was performed, and 5 products were collected. Product disposal is complete. This is not an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2012",
+        "input_data": "Store_Manual_A.txt Cam003-Disposal2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the product disposal task.  Note that the manual's 10-minute task time should be considered 1 minute.  The target products are the items on the second and third shelves up from the bottom in the second column from the left. Your report should address the items listed in section ④ of the manual. If \"Need for product disposal\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for product disposal\" is required, 5 products are left. The task was performed, and 4 products were collected. Product disposal is Incomplete, 1 is left. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2013",
+        "input_data": "Store_Manual_A.txt Cam106-Sticker0-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the discount sticker application task.  Note that the manual's 10-minute task time should be considered 75 seconds.  The target products are the items on the black stand in front. Your report should address the items listed in section ④ of the manual. If \"Need for discount sticker application\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for discount sticker application\" is not required."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2014",
+        "input_data": "Store_Manual_A.txt Cam106-Sticker1-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the discount sticker application task.  Note that the manual's 10-minute task time should be considered 75 seconds.  The target products are the items on the black stand in front. Your report should address the items listed in section ④ of the manual. If \"Need for discount sticker application\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for discount sticker application\" is required, 4 products are left. The task was performed, and 4 products were given discount sticker. Discount sticker application is complete. This is not an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2015",
+        "input_data": "Store_Manual_A.txt Cam106-Sticker2-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Assuming the specified video files are the correct ones to review, please report on the discount sticker application task.  Note that the manual's 10-minute task time should be considered 75 seconds.  The target products are the items on the black stand in front. Your report should address the items listed in section ④ of the manual. If \"Need for discount sticker application\" is \"Not Required,\" you may skip reporting on subsequent items."
+            },
+            {
+                "from": "gpt",
+                "value": "\"Need for discount sticker application\" is required, 4 products are left. The task was performed, and 3 products were given discount sticker. Discount sticker application is Incomplete, 1 product was not given the discount sticker. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2016",
+        "input_data": "Store_Manual_A.txt Cam012-Vacuuming5.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the vacuuming task.  In this area,  vacuuming duration time should be more than 10seconds."
+            },
+            {
+                "from": "gpt",
+                "value": "The task was not performed. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2017",
+        "input_data": "Store_Manual_A.txt Cam012-Vacuuming2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the vacuuming task.  In this area,  vacuuming duration time should be more than 10seconds."
+            },
+            {
+                "from": "gpt",
+                "value": "The task was performed. The task was sufficient. This is not an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.1.2018",
+        "input_data": "Store_Manual_A.txt Cam012-Vacuuming3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Assuming the specified video files are the correct ones to review, please report on the vacuuming task.  In this area,  vacuuming duration time should be more than 10seconds."
+            },
+            {
+                "from": "gpt",
+                "value": "The task was performed. The task was insufficient. This is an incident."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2001",
+        "input_data": "Store_Manual_A.txt Cam009-202505052000-2010.mp4 Cam009-202505052100-2110.mp4 Cam009-202505062000-2010.mp4 Cam009-202505062100-2110.mp4 Cam009-202505072000-2010.mp4 Cam009-202505082000-2010.mp4 Cam009-202505092000-2010.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the basket collection task for the period of May 5th to May 9th, 2025.  Camera ID : 009 For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining baskets if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining baskets if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Basket Collection Required? / Task Performed? / Complete or Incomplete? May 5th: Required (2 remaining) / Performed (1) / Incomplete (1 remaining) May 6th: Required (2 remaining) / Performed (2) / Complete May 7th: Not Required May 8th: Required (2 remaining) / Performed (1) / Incomplete (1 remaining) May 9th: Required (2 remaining) / Performed (2) / Complete May 5th, 8th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2002",
+        "input_data": "Store_Manual_A.txt Cam104-202503172000-2010-1cam.mp4 Cam104-202503172000-2010-2cam.mp4 Cam104-202503182000-2010-1cam.mp4 Cam104-202503182000-2010-2cam.mp4 Cam104-202503192000-2010-1cam.mp4 Cam104-202503192000-2010-2cam.mp4 Cam104-202503202000-2010-1cam.mp4 Cam104-202503202000-2010-2cam.mp4 Cam104-202503202100-2110-1cam.mp4 Cam104-202503202100-2110-2cam.mp4 Cam104-202503212000-2010-1cam.mp4 Cam104-202503212000-2010-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the basket collection task for the period of May 17th to March 21th, 2025.  Camera ID : 104,  use both synchronized files For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining baskets if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining baskets if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Basket Collection Required? / Task Performed? / Complete or Incomplete? Mar 17th: Required (1 remaining) / Performed (1) / Complete Mar 18th: Not Required Mar 19th: Required (1 remaining) / Not performed / Incomplete (1 remaining) Mar 20th: Required (2 remaining) / Performed (1) / Incomplete (1 remaining) Mar 21th: Required (2 remaining) / Performed (2) / Complete Mar 19th, 21th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2003",
+        "input_data": "Store_Manual_A.txt Cam104-202505052000-2010-1cam.mp4 Cam104-202505052000-2010-2cam.mp4 Cam104-202505052100-2110-1cam.mp4 Cam104-202505052100-2110-2cam.mp4 Cam104-202505062000-2010-1cam.mp4 Cam104-202505062000-2010-2cam.mp4 Cam104-202505062100-2110-1cam.mp4 Cam104-202505062100-2110-2cam.mp4 Cam104-202505072000-2010-1cam.mp4 Cam104-202505072000-2010-2cam.mp4 Cam104-202505082000-2010-1cam.mp4 Cam104-202505082000-2010-2cam.mp4 Cam104-202505092000-2010-1cam.mp4 Cam104-202505092000-2010-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the cart collection task for the period of May 5th to May 9th, 2025.  Camera ID :104,  use both synchronized files For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining carts if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining carts if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Cart Collection Required? / Task Performed? / Complete or Incomplete? May 5th: Required (2 remaining) / Performed (1) / Incomplete (1 remaining) May 6th: Required (1 remaining) / Performed (1) / Complete May 7th: Required (1 remaining) / Not performed / Incomplete (1 remaining) May 8th: Required (1 remaining) / Performed (1) / Complete May 9th: Required (2 remaining) / Performed (2) / Complete May 5th, 7th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2004",
+        "input_data": "Store_Manual_A.txt Cam003-202502242000-2010.mp4 Cam003-202502242100-2110.mp4 Cam003-202502252000-2010.mp4 Cam003-202502262000-2010.mp4 Cam003-202502272000-2010.mp4 Cam003-202502282000-2010.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the product disposal task for the period of Feb 25th to Feb 28th, 2025.  Camera ID :003 The target products are the items on the second and third shelves up from the bottom in the second column from the left. For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining products if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining products if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Product Disposal Required? / Task Performed? / Complete or Incomplete? Feb 24th: Required (5 remaining) / Performed (5) / Complete Feb 25th: Required (5 remaining) / Not performed / Incomplete (5 remaining)  Feb 26th: Required (5 remaining) / Performed (5) / Complete Feb 27th: Not Required Feb 28th: Required (5 remaining) / Performed (4) / Incomplete(1 remaining) Feb 25th, 28th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2005",
+        "input_data": "Store_Manual_A.txt Cam106-202502102000-2010-1cam.mp4 Cam106-202502112000-2010-1cam.mp4 Cam106-202502112100-2110-1cam.mp4 Cam106-202502122000-2010-1cam.mp4 Cam106-202502132000-2010-1cam.mp4 Cam106-202502142000-2010-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the product disposal task for the period of Feb 10th to Feb 14th, 2025.  Camera ID :106,  use -1cam files The target products are the items on the black stand in front. For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining products if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining products if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Product Disposal Required? / Task Performed? / Complete or Incomplete? Feb 10th: Required (4 remaining) / Performed (4) / Complete Feb 11th: Required (4 remaining) / Performed (3) / Incomplete (1 remaining)  Feb 12th: Not Required Feb 13th: Required (4 remaining) / Not performed / Incomplete (4 remaining) Feb 14th: Required (4 remaining) / Performed (4) / Complete Feb 11th, 13th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2006",
+        "input_data": "Store_Manual_A.txt Cam106-202501131900-1910-2cam.mp4 Cam106-202501132000-2010-2cam.mp4 Cam106-202501141900-1910-2cam.mp4 Cam106-202501151900-1910-2cam.mp4 Cam106-202501161900-1910-2cam.mp4 Cam106-202501171900-1910-2cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the discount sticker application task for the period of Jan 13th to Jan 17th, 2025.  Camera ID :106,  use -2cam files The target products are the items on the black stand in front. For each date, provide a single-line summary report in the following format: \"Date: [Required/Not Required] ([Number of remaining products if Required]) / [Performed/Not Performed] ([Number collected if Performed]) / [Complete/Incomplete] ([Number of remaining products if Incomplete])\" If the task was \"Not Required\", simply report: \"Date: Not Required\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Discount Sticker Application Required? / Task Performed? / Complete or Incomplete? Feb 13th: Required (4 remaining) / Performed (4) / Complete Feb 14th: Not Required Feb 15th: Required (4 remaining) / Performed (3) / Incomplete (1 unstickered) Feb 16th: Not Required Feb 17th: Required (4 remaining) / Not performed / Incomplete (4 unstickered) Feb 15th, 17th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "4.2.2007",
+        "input_data": "Store_Manual_A.txt Cam012-202502242000-2010.mp4 Cam012-202502242100-2110.mp4 Cam012-202502252000-2010.mp4 Cam012-202502262000-2010.mp4 Cam012-202502272000-2010.mp4 Cam012-202502282000-2010.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Read this store manual. Report on the vacuuming task for the period of Feb 24th to Feb 28th, 2025.  Camera ID :012  In this area,  vacuuming duration time should be more than 10seconds. For each date, provide a single-line summary report in the following format: \"Date: [Performed/Not performed] / [Sufficient/Insufficient]\" After listing all daily reports, summarize any incident cases on a new line in the format: \"[Date1, Date2, ...] are the incident cases.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Report as follows, Date: Task Performed? / Sufficient or Insufficient? Feb 24th: Performed / Sufficient Feb 25th: Performed / Sufficient Feb 26th: Performed / Insufficient Feb 27th:  Not performed / Insufficient Feb 28th: Performed / Insufficient Feb 26th, 27th, 28th are the incident cases."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]

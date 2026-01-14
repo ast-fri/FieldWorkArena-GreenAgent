@@ -1,0 +1,21 @@
+FROM ghcr.io/astral-sh/uv:python3.12-trixie
+
+# for OpenCV
+RUN apt-get update && apt-get install -y libgl1
+
+RUN adduser fwa
+USER fwa
+WORKDIR /home/fwa
+
+COPY pyproject.toml uv.lock README.md ./
+COPY src src
+
+RUN \
+    --mount=type=cache,target=/home/fwa/.cache/uv,uid=1000 \
+    uv sync --locked
+
+COPY scenarios scenarios
+
+ENTRYPOINT ["uv", "run", "scenarios/fwa/purple_agent/test_agent.py"]
+CMD ["--host", "0.0.0.0"]
+EXPOSE 9019

@@ -1,0 +1,594 @@
+[
+    {
+        "id": "2.1.2126",
+        "input_data": "Cam018-OutofStock1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product : light olive-colored box. specified number : 5"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:00:30."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2127",
+        "input_data": "Cam018-OutofStock2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product : light olive-colored box. specified number : 5"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:01:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2128",
+        "input_data": "Cam018-OutofStock3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product : light olive-colored box. specified number : 5"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:01:20."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2129",
+        "input_data": "Cam1021-OutofStock1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product: can (e.g., can of beer, without requiring precise identification of beer). specified number : 12"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:02:49."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2130",
+        "input_data": "Cam1022-OutofStock2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product: can (e.g., can of beer, without requiring precise identification of beer). specified number : 12"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:02:49."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2131",
+        "input_data": "Cam1051-OutofStock1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product : bread packaged in a plastic bag. specified number : 5"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:01:11."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2132",
+        "input_data": "Cam1052-OutofStock2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report when it became \"Out of Stock\" if the target product is taken from the shelf a specified number of times by the custmers. The time must be output from the time of the movie itself. If the count is less than the specified number at the end of the video, report \"Out of Stock Not Detected\". Do not count when the product is placed back. Target product : bread packaged in a plastic bag. specified number : 5"
+            },
+            {
+                "from": "gpt",
+                "value": "It became \"Out of Stock\" at 00:01:11."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2133",
+        "input_data": "Cam018-Drop0.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2134",
+        "input_data": "Cam018-Drop1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" detected at 00:00:07."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2135",
+        "input_data": "Cam018-Drop2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" detected at 00:00:06."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2136",
+        "input_data": "Cam018-Drop3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" detected at 00:00:07."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2137",
+        "input_data": "Cam018-Drop4.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2138",
+        "input_data": "Cam018-Drop5.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2139",
+        "input_data": "Cam018-Drop6.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : light olive-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2140",
+        "input_data": "Cam1071-Drop0.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : purple-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2141",
+        "input_data": "Cam1071-Drop1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : purple-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" detected at 00:00:14."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2142",
+        "input_data": "Cam1071-Drop2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : purple-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" detected at 00:00:28."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2143",
+        "input_data": "Cam1071-Drop3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : purple-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2144",
+        "input_data": "Cam1071-Drop4.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report \"Product Dropped\" if the target product dropped by a custmer and was not returned within a specified seconds. Report the time when product was dropped. The time must be output from the time of the movie itself.  Target product : purple-colored box. specified second : 10"
+            },
+            {
+                "from": "gpt",
+                "value": "\"Product Drop\" not detected."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2145",
+        "input_data": "Cam012-HeatMap1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (991,351),(1649,612),(1528,492),(914,418),(1332,326),(1451,523),(1368,748),(1409,599),(875,615),(972,365),(1015,322),(942,387),(730,776),(853,746),(1426,600),(934,467)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2146",
+        "input_data": "Cam012-HeatMap2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (991,351),(1649,612),(1528,492),(914,418),(1332,326),(1451,523),(1368,748),(1409,599),(875,615),(972,365),(1015,322),(942,387),(730,776),(853,746),(1426,600),(934,467),(999,527),(986,225),(918,256),(1417,332),(803,512),(768,509),(721,6701),(967,500),(1428,421),(822,388),(583,683)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2147",
+        "input_data": "Cam012-HeatMap3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (991,351),(1649,612),(1528,492),(914,418),(1332,326),(1451,523),(1368,748),(1409,599),(875,615),(972,365),(1015,322),(942,387),(730,776),(853,746),(1426,600),(934,467),(999,527),(986,225),(918,256),(1417,332),(803,512),(768,509),(721,6701),(967,500),(1428,421),(822,388),(583,683),(1405,341),(1352,482),(950,623),(862,422),(851,760),(696,333),(1411,415),(982,416),(983,230),(916,478),(8445,491),(792,282),(1344,285),(1480,644),(706,920)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2148",
+        "input_data": "Cam017-HeatMap1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (570,719),(1058,333),(1127,292),(605,285),(629,440),(1258,605),(709,333),(742,221),(1120,421),(1281,644),(592,673),(595,194),(747,206),(1107,409),(585,702),(486,668)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2149",
+        "input_data": "Cam017-HeatMap2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (1166,228),(733,284),(629,190),(1358,505),(536,196),(1268,265),(1200,252),(722,244),(1149,478),(618,340),(1061,341),(753,204),(1271,333),(732,278),(752,266),(110.,226),(608,191),(1084,200),(664,346),(1207,244)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2150",
+        "input_data": "Cam017-HeatMap3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, detect the XY pixel coordinates of the product shelf each time a customer takes a product and create a list based on the count. Do not count when the product is placed back."
+            },
+            {
+                "from": "gpt",
+                "value": "The detected pixel cooridinates are (736,221),(1336,743),(1171,342),(1098,258),(1073,228),(674,643),(1222,573),(1193,389),(1102,404),(733,348)."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "2.1.2151",
+        "input_data": "Cam1052-DS_stop0.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "No customer detection in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2152",
+        "input_data": "Cam1052-DS_stop1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2153",
+        "input_data": "Cam1052-DS_stop2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2154",
+        "input_data": "Cam1052-DS_stop3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2155",
+        "input_data": "Cam1052-DS_stop4.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2156",
+        "input_data": "Cam1052-DS_stop5.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2157",
+        "input_data": "Cam1052-DS_stop6.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2158",
+        "input_data": "Cam1052-DS_stop7.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2159",
+        "input_data": "Cam1052-DS_stop8.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2160",
+        "input_data": "Cam1052-DS_stop9.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2161",
+        "input_data": "Cam1052-DS_stop10.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    },
+    {
+        "id": "2.1.2162",
+        "input_data": "Cam1052-DS_stop11.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, there is a tablet displaying a commercial for the target product. Detect whether a customer enters the area where this tablet is visible (including passing through or stopping). Tablet location: pixel coordinates (1150, 320)."
+            },
+            {
+                "from": "gpt",
+                "value": "Customer detected in specified area."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]

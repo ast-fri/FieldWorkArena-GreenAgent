@@ -1,0 +1,258 @@
+[
+    {
+        "id": "3.1.2001",
+        "input_data": "Cam018-Restock1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:53."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2002",
+        "input_data": "Cam018-Restock2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:32."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2003",
+        "input_data": "Cam018-Restock3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:35."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2004",
+        "input_data": "Cam018-Restock4.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The restocked motion was not found. It was ouf of stock for entire video, which is 00:00:42."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2005",
+        "input_data": "Cam102-Restock1-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product: can (e.g., can of beer, without requiring precise identification of beer)."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:44."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2006",
+        "input_data": "Cam102-Restock2-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product: can (e.g., can of beer, without requiring precise identification of beer)."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:49."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2007",
+        "input_data": "Cam102-Restock3-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product: can (e.g., can of beer, without requiring precise identification of beer)."
+            },
+            {
+                "from": "gpt",
+                "value": "The restocked motion was not found. It was ouf of stock for entire video, which is 00:01:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2008",
+        "input_data": "Cam105-Restock1-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : bread packaged in a plastic bag."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:47."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2009",
+        "input_data": "Cam105-Restock2-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : bread packaged in a plastic bag."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:47."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2010",
+        "input_data": "Cam105-Restock3-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product was out of stock. The time must be output from the time of the movie itself. Out-of-stock start: video start time.  Out-of-stock end: when product retock is complete by the employee. If not, video end time. Target product : bread packaged in a plastic bag."
+            },
+            {
+                "from": "gpt",
+                "value": "The restocked motion was not found. It was ouf of stock for entire video, which is 00:01:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2011",
+        "input_data": "Cam018-Return1.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:52."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2012",
+        "input_data": "Cam018-Return2.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:50."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2013",
+        "input_data": "Cam018-Return3.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : light olive-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The returning motion was not found. It remained on the floor for entire video, which is 00:01:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2014",
+        "input_data": "Cam107-Return1-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : purple-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:47."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2015",
+        "input_data": "Cam107-Return2-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : purple-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The duration time is 00:00:44."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    },
+    {
+        "id": "3.1.2016",
+        "input_data": "Cam107-Return3-1cam.mp4",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, report the duration of time the target product remained on the floor after being dropped. The time must be output from the time of the movie itself. start: video start time.  end: when product was returned by the employee. If not, video end time. Target product : purple-colored box."
+            },
+            {
+                "from": "gpt",
+                "value": "The returning motion was not found. It remained on the floor for entire video, which is 00:01:00."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "numerical_match"
+    }
+]

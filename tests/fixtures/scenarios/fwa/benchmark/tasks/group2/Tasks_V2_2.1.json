@@ -1,0 +1,18 @@
+[
+    {
+        "id": "2.1.2108",
+        "input_data": "Cam006-Uniform2.mp4 uniform(front-shot).jpg uniform(back-shot).jpg uniform(side-shot).jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "In this video, employees use a door with an uniform. Define: Entry: Movement from visible space into the unseen room. Exit: Movement from the unseen room into visible space. Task: Detect each Entry/Exit instance. Assign a unique, sequential numerical ID (e.g., Entry1, Exit2, Entry3), prefixed by action type. Check whether they are wearing a proper uniform when entrying or exiting, and report with ID. Example of proper uniforms are \"uniform(front-shot).jpg, uniform(bask-shot).jpg, uniform(side-shot).jpg\". Please ensure that the zipper on the front of the uniform is closed. If no instances, state \"No entries or exits detected.\""
+            },
+            {
+                "from": "gpt",
+                "value": "Entry1 is improper, Exit2 is improper."
+            }
+        ],
+        "output_format": "text",
+        "eval_func": "fuzzy_match"
+    }
+]
