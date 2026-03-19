@@ -6,9 +6,9 @@ This document provides detailed information about running tests in the FWA (Fiel
 
 Integration tests require authentication tokens to be set via environment variables.
 
-### HF_TOKEN
+### HF_TEST_TOKEN
 
-HuggingFace authentication token required for running integration tests. In production, this is configured in `scenario.toml`.
+HuggingFace authentication token required for running integration tests. 
 
 #### Using .env File (Recommended)
 

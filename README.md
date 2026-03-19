@@ -3,11 +3,14 @@
 **Task Availability Limitation**: Due to A2A FileWithBytes constraints for hosting large benchmark data, the AgentBeats environment has limited task availability. Additional tasks will be enabled as A2A updates are released. See [Task Configuration](#task-configuration) for details on available task counts per category.
 
 **For Full Task Set**: If you want to try the complete version with all tasks, please visit [FieldWorkArena](https://github.com/FujitsuResearch/FieldWorkArena/).
+
+**LLM for Automatic Evaluation**: The automatic evaluation currently only supports OpenAI models (GPT-4o). Other LLM providers are not guaranteed to work.
 # FieldWorkArena
 
 > This repository is for GreenAgent submission to the AgentX - AgentBeats Competition. See below for more details.
 > - Competition(https://rdi.berkeley.edu/agentx-agentbeats)
 > - AgentBeats developer platform(https://agentbeats.dev/)
+> - If you are participating in the AgentBeats Competition and would like to contribute your results, please visit the [leaderboard repository](https://github.com/ast-fri/FieldWorkArena-leaderboard).
 
 ## Overview
 
@@ -60,7 +63,9 @@ This project requires access to the FieldWorkArena dataset hosted on Hugging Fac
    - Create a new token with `read` permissions
    - Copy the token and set it in your `.env` file as `HF_TOKEN`
 
-**Note:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change. 
+**Note1:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change. 
+
+**Note2:** We check for new access requests multiple times a day during business hours [9:00 - 17:00 JST, Monday - Friday], but cannot process approvals on weekends, public holidays, or outside these hours.
 
 ## Getting Started
 1. Clone (or fork) the repo:
@@ -73,6 +78,13 @@ cd FieldWorkArena-GreenAgent
 ```
 cp sample.env .env
 ```
+Edit `.env` file:
+```
+HF_TOKEN=your_huggingface_access_token
+OPENAI_API_KEY=your_openai_api_key
+```
+- `HF_TOKEN`: Required to access the FieldWorkArena dataset on Hugging Face (see above).
+- `OPENAI_API_KEY`: Required for automatic evaluation using GPT-4o.
 
 3. Edit your scenario scenarios/fwa/scenario.toml [How to edit](#scenariotoml)
 
@@ -134,7 +146,7 @@ The `all_task_ids.toml` file defines which tasks should be executed in your scen
 **⚠️ Important Note on Task Availability:**
 Due to the use of A2A FileWithBytes for hosting benchmark data from GreenAgent, the AgentBeats environment currently has limitations on handling large-capacity benchmark data. The available task counts are:
 - **factory**: 79 tasks available (out of 176 total tasks)
-- **warehouse**: 162 tasks available (out of 264 total tasks)
+- **warehouse**: 155 tasks available (out of 264 total tasks)
 - **retail**: 5 tasks available (out of 446 total tasks)
 
 Additional tasks will be enabled as A2A updates are released. For the complete version with all tasks, please visit [FieldWorkArena](https://github.com/FujitsuResearch/FieldWorkArena/).
@@ -196,6 +208,8 @@ target = "factory"
 
 **`[config]`**: Assessment configuration
 - `target`: Target category to run (`"factory"`, `"warehouse"`, `"retail"`, `"custom"`, or `"all"`)
+
+**Note:** The Hugging Face access token is read from the `HF_TOKEN` environment variable in your `.env` file.
 
 ## Testing
 

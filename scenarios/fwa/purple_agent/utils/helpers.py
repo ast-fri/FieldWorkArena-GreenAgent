@@ -1,14 +1,12 @@
+import os
 from pathlib import Path
 from typing import Any
 
-import os
+from google.adk.models.lite_llm import LiteLlm
 import yaml
 
-from google.adk.models.lite_llm import LiteLlm
 
-def get_litellm_model(
-        llm_name: str = "openai",
-        model_name: str = "gpt-4o")-> LiteLlm:
+def get_litellm_model(llm_name: str = "openai", model_name: str = "gpt-4o") -> LiteLlm:
     """Get LiteLlm model based on the specified llm_name."""
     try:
         API_KEY = os.getenv("OPENAI_API_KEY", "")
@@ -23,6 +21,7 @@ def get_litellm_model(
             raise ValueError(f"Unsupported llm_name: {llm_name}")
     except Exception as e:
         raise RuntimeError(f"Failed to initialize LiteLlm: {e}")
+
 
 def load_yaml_config(config_name: str) -> dict[str, Any]:
     """Load configuration from YAML file.

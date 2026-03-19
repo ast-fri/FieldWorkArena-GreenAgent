@@ -8,5 +8,5 @@ endpoint = "http://127.0.0.1:9019"
 cmd = "python scenarios/fwa/purple_agent/test_agent.py  --host 127.0.0.1 --port 9019"
 
 [config]
-target = "custom"
+target = "all"
 

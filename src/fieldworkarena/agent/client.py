@@ -1,24 +1,22 @@
-import sys
-import json
 import asyncio
+import json
 from pathlib import Path
-from typing import Any
-from pydantic import HttpUrl
-
+import sys
 import tomllib
+from typing import Any
+
+from a2a.types import (
+    AgentCard,
+    DataPart,
+    Message,
+    TaskArtifactUpdateEvent,
+    TaskStatusUpdateEvent,
+    TextPart,
+)
+from pydantic import HttpUrl
 
 from fieldworkarena.agent_core.client_utils import send_message
 from fieldworkarena.agent_core.models import EvalRequest
-from a2a.types import (
-    AgentCard,
-    Message,
-    TaskStatusUpdateEvent,
-    TaskArtifactUpdateEvent,
-    TaskState,
-    Part,
-    TextPart,
-    DataPart,
-)
 from fieldworkarena.log.fwa_logger import getLogger, set_logger
 
 set_logger()
@@ -43,11 +41,9 @@ def parse_toml(cfg: dict[str, Any]) -> tuple[EvalRequest, str]:
                 parts[role] = endpoint
 
     # create Request for GreenAgent
-    eval_req = EvalRequest(
-        participants=parts,
-        config=cfg.get("config", {}) or {}
-    )
+    eval_req = EvalRequest(participants=parts, config=cfg.get("config", {}) or {})
     return eval_req, green_endpoint
+
 
 def print_parts(parts, task_state: str | None = None):
     text_parts = []
@@ -74,7 +70,8 @@ def print_parts(parts, task_state: str | None = None):
     message_to_log = "\n".join(output)
     logger.info(message_to_log)
 
-async def event_consumer(event, card: AgentCard):
+
+async def event_consumer(event, card: AgentCard):  # noqa: ARG001
     match event:
         case Message() as msg:
             print_parts(msg.parts)
@@ -97,6 +94,7 @@ async def event_consumer(event, card: AgentCard):
         case _:
             logger.info("Unhandled event")
 
+
 async def main():
     if len(sys.argv) < 2:
         logger.info("Usage: python client.py <scenario.toml>")
@@ -113,7 +111,7 @@ async def main():
     req, green_url = parse_toml(data)
 
     msg = req.model_dump_json()
-    
+
     # send eval request to GreenAgent
     await send_message(msg, green_url, streaming=True, consumer=event_consumer)
 

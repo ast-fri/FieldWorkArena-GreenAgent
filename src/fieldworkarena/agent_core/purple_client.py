@@ -2,18 +2,20 @@ from a2a.types import FileWithBytes
 
 from fieldworkarena.agent_core.client_utils import send_message_with_file
 
+
 class PurpleClient:
     """PurpleClient is used to communicate with PurpleAgents."""
+
     def __init__(self):
         self._context_ids = {}
 
     async def send_message(
-            self,
-            message: str,
-            file_payloads: list[FileWithBytes],
-            url: str,
-            new_conversation: bool = False
-        ) -> str:
+        self,
+        message: str,
+        file_payloads: list[FileWithBytes],
+        url: str,
+        new_conversation: bool = False,
+    ) -> str:
         """
         Communicate with another agent by sending a message and receiving their response.
 
@@ -25,12 +27,13 @@ class PurpleClient:
 
         Returns:
             str: The agent's response message
-        """
+        """  # noqa: E501
         outputs = await send_message_with_file(
             message=message,
             file_payloads=file_payloads,
             base_url=url,
-            context_id=None if new_conversation else self._context_ids.get(url, None))
+            context_id=None if new_conversation else self._context_ids.get(url, None),
+        )
         if outputs.get("status", "completed") != "completed":
             raise RuntimeError(f"{url} responded with: {outputs}")
         self._context_ids[url] = outputs.get("context_id", None)

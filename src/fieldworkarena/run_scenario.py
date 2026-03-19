@@ -130,7 +130,7 @@ def parse_toml(scenario_path: str) -> dict:
 def main():
     """Main function to run the agent scenario."""
 
-    #--- Parse command-line arguments ---
+    # --- Parse command-line arguments ---
     parser = argparse.ArgumentParser(description="Run agent scenario")
     parser.add_argument("scenario", help="Path to scenario TOML file")
     parser.add_argument("--show-logs", action="store_true", help="Show agent stdout/stderr")
@@ -140,7 +140,7 @@ def main():
         help="Start agent servers only without running evaluation",
     )
     args = parser.parse_args()
-    #--- end ---
+    # --- end ---
 
     # read scenario, including Green and Purple agent information and config
     cfg = parse_toml(args.scenario)
@@ -228,9 +228,9 @@ def main():
                 except (ProcessLookupError, AttributeError):
                     print(f"Process {p.pid} already terminated.")
                     pass
-        
+
         time.sleep(1)  # Wait for graceful shutdown
-        
+
         # Forceful shutdown (SIGKILL on Unix, kill on Windows)
         for p in procs:
             if p.poll() is None:

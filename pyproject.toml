@@ -44,7 +44,7 @@ dev = [
 packages = ["src/fieldworkarena"]
 
 [tool.black]
-line-length = 100
+line-length = 150
 target-version = ['py312']
 include = '\.pyi?$'
 extend-exclude = '''

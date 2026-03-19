@@ -1,52 +1,69 @@
 import os
-from openai import OpenAI
-from openai.types.chat import ChatCompletionMessageParam
-from typing import Any, Tuple
+from typing import Any
 
 import nltk
-nltk.download('punkt_tab')
+from openai import OpenAI
+from openai.types.chat import ChatCompletionMessageParam
 
-from nltk.tokenize import word_tokenize
+nltk.download("punkt_tab")
+
 import json
 import re
 
+from nltk.tokenize import word_tokenize
+
 from fieldworkarena.log.fwa_logger import getLogger
+
 logger = getLogger(__name__)
 
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], base_url=os.environ.get("OPENAI_BASE_URL"))
 
 
-def llm_fuzzy_match(pred: str, reference: str, question: str) -> Tuple[float, str | None]:
-    """Check whether the prediction matches the reference with GPT-4-turbo"""
+def llm_fuzzy_match(pred: str, reference: str, question: str) -> tuple[float, str | None]:
+    """Check whether the prediction matches the reference with GPT-4o"""
     messages: list[ChatCompletionMessageParam] = []
     # construct the question to ask
-    message = "Help a teacher to grade the answer of a student given a question. Keep in mind that the student may use different phrasing or wording to answer the question. The goal is to evaluate whether the answer is semantically equivalent to the reference answer.\n"
+    message = (
+        "Help a teacher to grade the answer of a student given a question. "
+        "Keep in mind that the student may use different phrasing or wording "
+        "to answer the question. The goal is to evaluate whether the answer is "
+        "semantically equivalent to the reference answer.\n"
+    )
     message += f"question: {question}\n"
     message += f"reference answer: {reference}\n"
-    message += "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    message += (
+        "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    )
     message += f"student answer: {pred}\n"
-    message += "Conclude the judgement by 'correct', 'incorrect', or 'partially correct'. Only output one of these options, and nothing else."
-    #message += "Also answer the reason why you judged so."
+    message += (
+        "Conclude the judgement by 'correct', 'incorrect', or 'partially correct'. "
+        "Only output one of these options, and nothing else."
+    )
+    # message += "Also answer the reason why you judged so."
     messages = [
         {"role": "system", "content": "You are a helpful assistant"},
         {"role": "user", "content": message},
     ]
 
-    response = generate_from_openai_chat_completion(
-        model="gpt-4-1106-preview",
-        messages=messages,
-        temperature=0,
-        max_tokens=768,
-        top_p=1.0,
-        context_length=0,
-    ).lower()
-    
-    logger.info(f"response: {response}")
-    if "partially correct" in response or "incorrect" in response:
+    try:
+        response = generate_from_openai_chat_completion(
+            model="gpt-4o",
+            messages=messages,
+            temperature=0,
+            max_tokens=768,
+            top_p=1.0,
+            context_length=0,
+        ).lower()
+
+        logger.info(f"response: {response}")
+        if "partially correct" in response or "incorrect" in response:
+            return 0.0, None
+        else:
+            assert "correct" in response, response
+            return 1.0, None
+    except Exception as e:
+        logger.error(f"Error in llm_fuzzy_match: {e}")
         return 0.0, None
-    else:
-        assert "correct" in response, response
-        return 1.0, None
 
 
 def generate_from_openai_chat_completion(
@@ -55,26 +72,27 @@ def generate_from_openai_chat_completion(
     temperature: float,
     max_tokens: int,
     top_p: float,
-    context_length: int,
-    stop_token: str | None = None,
+    context_length: int,  # noqa: ARG001
+    stop_token: str | None = None,  # noqa: ARG001
 ) -> str:
     if "OPENAI_API_KEY" not in os.environ:
-        raise ValueError(
-            "OPENAI_API_KEY environment variable must be set when using OpenAI API."
+        raise ValueError("OPENAI_API_KEY environment variable must be set when using OpenAI API.")
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            top_p=top_p,
         )
-    response = client.chat.completions.create(
-        model=model,
-        messages=messages,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        top_p=top_p,
-    )
-    answer: str = response.choices[0].message.content or ""
-    return answer
+        answer: str = response.choices[0].message.content or ""
+        return answer
+    except Exception as e:
+        logger.error(f"Error in generate_from_openai_chat_completion: {e}")
+        return ""
 
 
-
-def clean_answer(answer: str) -> Tuple[str, None]:
+def clean_answer(answer: str) -> tuple[str, None]:
     if answer.startswith("'") and answer.endswith("'"):
         answer = answer[1:-1]
     elif answer.startswith('"') and answer.endswith('"'):
@@ -82,16 +100,14 @@ def clean_answer(answer: str) -> Tuple[str, None]:
     return answer.lower(), None
 
 
-#def exact_match(ref: str, pred: Union[str, int]) -> float:
-def exact_match(ref: str, pred: str) -> Tuple[float, None]:
+# def exact_match(ref: str, pred: Union[str, int]) -> float:
+def exact_match(ref: str, pred: str) -> tuple[float, None]:
     if isinstance(pred, int):
         pred = str(pred)
-    return float(
-        clean_answer(pred) == clean_answer(ref)
-    ), None
+    return float(clean_answer(pred) == clean_answer(ref)), None
 
 
-def must_include(ref: str, pred: str) -> Tuple[float, None]:
+def must_include(ref: str, pred: str) -> tuple[float, None]:
     clean_ref = clean_answer(ref)
     clean_pred = clean_answer(pred)
     # tokenize the answer if the ref is a single word
@@ -103,7 +119,7 @@ def must_include(ref: str, pred: str) -> Tuple[float, None]:
         return float(clean_ref in clean_pred), None
 
 
-def must_exclude(ref: str, pred: str) -> Tuple[float, None]:
+def must_exclude(ref: str, pred: str) -> tuple[float, None]:
     """Returns 1 if pred is not in ref, and 0 otherwise"""
     clean_ref = clean_answer(ref)
     clean_pred = clean_answer(pred)
@@ -116,14 +132,20 @@ def must_exclude(ref: str, pred: str) -> Tuple[float, None]:
         return float(clean_ref not in clean_pred), None
 
 
-def json_match(pred: str, reference: str, question: str) -> Tuple[float, str | None]:
-    """Check whether the prediction matches the reference with GPT-4-turbo"""
+def json_match(pred: str, reference: str, question: str) -> tuple[float, str | None]:
+    """Check whether the prediction matches the reference with GPT-4o"""
     messages: list[ChatCompletionMessageParam] = []
     # construct the question to ask
-    message = "Help a teacher to grade the answer of a student given a question. Keep in mind that the student may use different phrasing or wording to answer the question. The goal is to evaluate whether the answer is semantically equivalent to the reference answer.\n"
+    message = (
+        "Help a teacher to grade the answer of a student given a question. "
+        "Keep in mind that the student may use different phrasing or wording to answer the question. "
+        "The goal is to evaluate whether the answer is semantically equivalent to the reference answer.\n"
+    )
     message += f"question: {question}\n"
     message += f"reference answer: {reference}\n"
-    message += "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    message += (
+        "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    )
     message += f"student answer: {pred}\n"
     message += "Conclude the judgement by 'correct', 'incorrect', or 'partially correct'. Only output one of these options, and nothing else."
     message += "Answer is given in JSON format. so you should compare the number of incidents, violations or other things and the keys of the answer"
@@ -133,31 +155,35 @@ def json_match(pred: str, reference: str, question: str) -> Tuple[float, str | N
         {"role": "user", "content": message},
     ]
 
-    response = generate_from_openai_chat_completion(
-        model="gpt-4-1106-preview",
-        messages=messages,
-        temperature=0,
-        max_tokens=768,
-        top_p=1.0,
-        context_length=0,
-    ).lower()
+    try:
+        response = generate_from_openai_chat_completion(
+            model="gpt-4o",
+            messages=messages,
+            temperature=0,
+            max_tokens=768,
+            top_p=1.0,
+            context_length=0,
+        ).lower()
 
+        if reference == "[ ]":
+            return 0.0, None
 
-    if reference == "[ ]":
+        # #"=================================")
+        # import json
+        # print("question: ", question)
+        # print("pred: ", pred)
+        # print("reference: ", reference)
+
+        # print("response: ", response)
+        if "partially correct" in response or "incorrect" in response:
+            return 0.0, response.replace("\n", " ")
+        else:
+            assert "correct" in response, response
+            return 1.0, response.replace("\n", " ")
+    except Exception as e:
+        logger.error(f"Error in json_match: {e}")
         return 0.0, None
 
-    # #"=================================")
-    # import json
-    # print("question: ", question)
-    # print("pred: ", pred)
-    # print("reference: ", reference)
-
-    # print("response: ", response)
-    if "partially correct" in response or "incorrect" in response:
-        return 0.0, response.replace("\n", " ")
-    else:
-        assert "correct" in response, response
-        return 1.0, response.replace("\n", " ")
 
 def eval_distance(pred: float, reference: float) -> float:
     ratio_threshold = [0.1, 0.2, 0.3, 0.4, 0.5]
@@ -183,22 +209,42 @@ def eval_time(pred: float, reference: float) -> float:
             return score_candidates[diff_threshold.index(threshold)]
     return 0.0
 
-def numerical_match(pred: str, reference:str, question: str, numerical_ratio = 0.5) -> Tuple[float, Any]:
+
+def numerical_match(
+    pred: str, reference: str, question: str, numerical_ratio=0.5
+) -> tuple[float, Any]:
 
     messages: list[ChatCompletionMessageParam] = []
     # construct the question to ask
-    message = "Help a teacher to grade the answer of a student given a question. Keep in mind that the student may use different phrasing or wording to answer the question.\n"
-    message = "The teacher evaluate numerical values by themselves, so you must retrieve the numerical values (e.g : number of objects, time, length) and give it to the teacher.\n"
+    message = (
+        "Help a teacher to grade the answer of a student given a question. "
+        "Keep in mind that the student may use different phrasing or wording "
+        "to answer the question.\n"
+    )
+    message = (
+        "The teacher evaluate numerical values by themselves, so you must "
+        "retrieve the numerical values (e.g : number of objects, time, length) "
+        "and give it to the teacher.\n"
+    )
     message += f"question: {question}\n"
     message += f"reference answer: {reference}\n"
-    message += "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    message += (
+        "all the string 'N/A' that you see is a special sequence that means 'not achievable'\n"
+    )
     message += f"student answer: {pred}\n"
     message += "Your task consist of two steps:\n"
-    message += "1. Compare the non-numerical part of the answer and determine if the answer is correct, incorrect or partially correct.\n"
+    message += (
+        "1. Compare the non-numerical part of the answer and determine if the "
+        "answer is correct, incorrect or partially correct.\n"
+    )
     message += "2. Extract the numerical values from the question and the answers.\n"
 
     message += "Give the numerical values asked in the question from the both answers separately.\n"
-    message += "If the answer does not contain any numerical values or only contains relative values (e.g., more, less, higher, lower, \"<\", \">\"), you should answer 'N/A' for the numerical values."
+    message += (
+        "If the answer does not contain any numerical values or only contains "
+        'relative values (e.g., more, less, higher, lower, "<", ">"), you '
+        "should answer 'N/A' for the numerical values."
+    )
     message += """
 You MUST ANSWER JSON FORMAT BELOW:
 {
@@ -220,24 +266,28 @@ All values should be numerical values. If the units are different, you should co
         {"role": "user", "content": message},
     ]
 
-    response = generate_from_openai_chat_completion(
-        model="gpt-4o-mini",
-        messages=messages,
-        temperature=0,
-        max_tokens=768,
-        top_p=1.0,
-        context_length=0,
-    )
-    
+    try:
+        response = generate_from_openai_chat_completion(
+            model="gpt-4o",
+            messages=messages,
+            temperature=0,
+            max_tokens=768,
+            top_p=1.0,
+            context_length=0,
+        )
+    except Exception as e:
+        logger.error(f"Error in numerical_match: {e}")
+        return 0.0, None
+
     # Extract JSON from the response
-    json_pattern = re.compile(r'\{.*\}', re.DOTALL)
+    json_pattern = re.compile(r"\{.*\}", re.DOTALL)
     json_match = json_pattern.search(response)
-    
+
     if not json_match:
         return 0.0, None
 
     json_str = json_match.group(0)
-    #print("json_str: ", json_str)  
+    # print("json_str: ", json_str)
 
     try:
         json_data = json.loads(json_str)
@@ -247,9 +297,9 @@ All values should be numerical values. If the units are different, you should co
         logger.info(f"JSON Decode Error: {json_str}")
         return 0.0, None
 
-    #print(json_data)
+    # print(json_data)
     # Further processing of json_data if needed
-    
+
     if json_data["correctness"] == "incorrect":
         score = 0.0
     else:
@@ -266,14 +316,15 @@ All values should be numerical values. If the units are different, you should co
                         value_t = int(value_t)
                         value_s = int(value_s)
                         if value_t == value_s:
-                            numerical_score += 1.0                        
+                            numerical_score += 1.0
                     except:
                         pass
 
                 case "time":
+
                     def convert_to_seconds(time_str: str) -> float:
                         """Convert time string in hh:mm:ss format to seconds."""
-                        parts = time_str.split(':')
+                        parts = time_str.split(":")
                         if len(parts) == 3:
                             hours, minutes, seconds = map(float, parts)
                             return hours * 3600 + minutes * 60 + seconds
@@ -284,10 +335,11 @@ All values should be numerical values. If the units are different, you should co
                             return float(parts[0])
                         else:
                             raise ValueError(f"Invalid time format: {time_str}")
+
                     try:
-                        if type(value_t) == str:
+                        if isinstance(value_t, str):
                             value_t = convert_to_seconds(value_t)
-                        if type(value_s) == str:
+                        if isinstance(value_s, str):
                             value_s = convert_to_seconds(value_s)
                         numerical_score += eval_time(value_s, value_t)
                     except:
@@ -298,13 +350,13 @@ All values should be numerical values. If the units are different, you should co
                         value_s = float(value_s)
                         numerical_score += eval_distance(value_s, value_t)
                     except:
-                        pass    
+                        pass
                 case _:
                     logger.info(f"Unknown type: : {type}")
                     pass
 
         numerical_score /= len(json_data["numerical_values"])
-        #print("numerical_score: ", numerical_score)
-        #print("response: \n", response)
+        # print("numerical_score: ", numerical_score)
+        # print("response: \n", response)
         score = (1 - numerical_ratio) + numerical_score * numerical_ratio
     return score, json_data

@@ -1,7 +1,6 @@
 from typing import Any
 from uuid import uuid4
 
-import httpx
 from a2a.client import (
     A2ACardResolver,
     ClientConfig,
@@ -9,14 +8,15 @@ from a2a.client import (
     Consumer,
 )
 from a2a.types import (
+    DataPart,
+    FilePart,
+    FileWithBytes,
     Message,
     Part,
     Role,
     TextPart,
-    DataPart,
-    FilePart,
-    FileWithBytes,
 )
+import httpx
 
 from fieldworkarena.log.fwa_logger import getLogger
 
@@ -33,41 +33,39 @@ def create_message(*, role: Role = Role.user, text: str, context_id: str | None 
         role=role,
         parts=[Part(TextPart(kind="text", text=text))],
         message_id=uuid4().hex,
-        context_id=context_id
+        context_id=context_id,
     )
 
+
 def create_message_with_file(
-        *,
-        role: Role = Role.user,
-        text: str,
-        file_payloads: list[FileWithBytes],
-        context_id: str | None = None
+    *,
+    role: Role = Role.user,
+    text: str,
+    file_payloads: list[FileWithBytes],
+    context_id: str | None = None,
 ) -> Message:
     """Create a Message object with text and multiple file attachments.
-    
+
     Args:
         role: The role of the message sender (default: user).
         text: The text content of the message.
         file_payloads: List of file payloads to attach to the message.
         context_id: Optional context ID for the conversation.
-        
+
     Returns:
         Message object with text and all file attachments.
     """
     # Start with text part
     parts = [Part(TextPart(kind="text", text=text))]
-    
+
     # Add all file parts
     for file_payload in file_payloads:
         parts.append(Part(FilePart(kind="file", file=file_payload)))
-    
+
     return Message(
-        kind="message",
-        role=role,
-        parts=parts,
-        message_id=uuid4().hex,
-        context_id=context_id
+        kind="message", role=role, parts=parts, message_id=uuid4().hex, context_id=context_id
     )
+
 
 def merge_parts(parts: list[Part]) -> str:
     """message.parts include text answerd by agent"""
@@ -81,13 +79,14 @@ def merge_parts(parts: list[Part]) -> str:
             chunks.append(part.root.file)
     return "\n".join(chunks)
 
+
 async def send_message(
-        message: str,
-        base_url: str,
-        context_id: str | None = None,
-        streaming=False,
-        consumer: Consumer | None = None
-    ) -> dict[str, Any]:
+    message: str,
+    base_url: str,
+    context_id: str | None = None,
+    streaming=False,
+    consumer: Consumer | None = None,
+) -> dict[str, Any]:
     """Client function to interact with PurpleAgent.
     Args:
         message: The query message to send to the agent.
@@ -98,7 +97,7 @@ async def send_message(
     Notice:
         This Client way using CleintFactory is need for Google Auth,
         We can not find if it is necessary for this development, but we use this way for future compatibility.
-    """
+    """  # noqa: E501
     try:
         async with httpx.AsyncClient(timeout=DEFAULT_TIMEOUT) as httpx_client:
             resolver = A2ACardResolver(httpx_client=httpx_client, base_url=base_url)
@@ -114,10 +113,7 @@ async def send_message(
 
             outbound_msg = create_message(text=message, context_id=context_id)
             last_event = None
-            outputs = {
-                "response": "",
-                "context_id": None
-            }
+            outputs = {"response": "", "context_id": None}
 
             async for event in client.send_message(outbound_msg):
                 last_event = event
@@ -127,7 +123,7 @@ async def send_message(
                     outputs["context_id"] = msg.context_id
                     outputs["response"] += merge_parts(msg.parts)
 
-                case (task, update):
+                case (task, update):  # noqa: F841
                     outputs["context_id"] = task.context_id
                     outputs["status"] = task.status.state.value
                     msg = task.status.message
@@ -143,16 +139,19 @@ async def send_message(
             return outputs
     except Exception as e:
         logger.error(f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}")
-        raise RuntimeError(f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}") from e
+        raise RuntimeError(
+            f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}"
+        ) from e
+
 
 async def send_message_with_file(
-        message: str,
-        file_payloads: list[FileWithBytes],
-        base_url: str,
-        context_id: str | None = None,
-        streaming=False,
-        consumer: Consumer | None = None
-    ) -> dict[str, Any]:
+    message: str,
+    file_payloads: list[FileWithBytes],
+    base_url: str,
+    context_id: str | None = None,
+    streaming=False,
+    consumer: Consumer | None = None,
+) -> dict[str, Any]:
     """Client function to interact with PurpleAgent.
     Args:
         message: The query message to send to the agent.
@@ -164,7 +163,7 @@ async def send_message_with_file(
     Notice:
         This Client way using CleintFactory is need for Google Auth,
         We can not find if it is necessary for this development, but we use this way for future compatibility.
-    """
+    """  # noqa: E501
     try:
         async with httpx.AsyncClient(timeout=DEFAULT_TIMEOUT) as httpx_client:
             resolver = A2ACardResolver(httpx_client=httpx_client, base_url=base_url)
@@ -178,12 +177,11 @@ async def send_message_with_file(
             if consumer:
                 await client.add_event_consumer(consumer)
 
-            outbound_msg = create_message_with_file(text=message, file_payloads=file_payloads, context_id=context_id)
+            outbound_msg = create_message_with_file(
+                text=message, file_payloads=file_payloads, context_id=context_id
+            )
             last_event = None
-            outputs = {
-                "response": "",
-                "context_id": None
-            }
+            outputs = {"response": "", "context_id": None}
 
             # if streaming == False, only one event is generated
             async for event in client.send_message(outbound_msg):
@@ -194,7 +192,7 @@ async def send_message_with_file(
                     outputs["context_id"] = msg.context_id
                     outputs["response"] += merge_parts(msg.parts)
 
-                case (task, update):
+                case (task, update):  # noqa: F841
                     outputs["context_id"] = task.context_id
                     outputs["status"] = task.status.state.value
                     msg = task.status.message
@@ -210,5 +208,6 @@ async def send_message_with_file(
             return outputs
     except Exception as e:
         logger.error(f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}")
-        raise RuntimeError(f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}") from e
-
+        raise RuntimeError(
+            f"Error communicating with agent at {base_url}: {type(e).__name__}: {e}"
+        ) from e
