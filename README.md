@@ -65,8 +65,6 @@ This project requires access to the FieldWorkArena dataset hosted on Hugging Fac
 
 **Note1:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change. 
 
-**Note2:** We check for new access requests multiple times a day during business hours [9:00 - 17:00 JST, Monday - Friday], but cannot process approvals on weekends, public holidays, or outside these hours.
-
 ## Getting Started
 1. Clone (or fork) the repo:
 ```
