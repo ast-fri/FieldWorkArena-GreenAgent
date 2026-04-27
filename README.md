@@ -63,7 +63,11 @@ This project requires access to the FieldWorkArena dataset hosted on Hugging Fac
    - Create a new token with `read` permissions
    - Copy the token and set it in your `.env` file as `HF_TOKEN`
 
-**Note1:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change. 
+**Note1:** You must have an approved access token before running the benchmark tasks. Please note that access permission handling procedures may be subject to change.
+
+**Note2:** We check for new access requests multiple times a day during business hours [9:00 - 17:00 JST, Monday - Friday], but cannot process approvals on weekends, public holidays, or outside these hours.
+
+**Note3:** Please note that due to the Japanese national holidays (April 29 – May 6), we will be unable to process any access requests during this period. If you wish to participate in the competition, please submit your access request by April 28 (Monday) to ensure timely approval before the holiday break.
 
 ## Getting Started
 1. Clone (or fork) the repo:
